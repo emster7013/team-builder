@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import Forms from './Forms.js';
 import './App.css';
+import styled from 'styled-components';
 
+const FormsSty = styled.div `
+width: 90%;
+margin: 0 auto;
+display: flex;
+justify-content: center;
+background: #A52A2A;
+color: white;
+border: 30px solid #bd7f37ff;
+border-radius: 10%;
+`
 function App() {
+  const [members, setMembers] = useState([{
+    name: '',
+    email:'',
+    role: ''
+  }]);
+  const addNewMember = teamMember =>{
+    setMembers([...members, teamMember]);
+  };
+
+
   return (
+    <FormsSty>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Be apart of the fight, fight for something you believe in!</h2>
+      <Forms addNewMember={addNewMember}/>
     </div>
+    </FormsSty>
   );
 }
 
