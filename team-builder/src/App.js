@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import Forms from './Forms.js';
 import './App.css';
 import styled from 'styled-components';
-
+import TeamList from './TeamList';
 const FormsSty = styled.div `
-width: 90%;
+width: 100%;
 margin: 0 auto;
 display: flex;
 justify-content: center;
@@ -29,6 +29,9 @@ function App() {
     <div className="App">
       <h2>Be apart of the fight, fight for something you believe in!</h2>
       <Forms addNewMember={addNewMember}/>
+    </div>
+    <div className='users'>
+    <TeamList memberList={members}/>
     </div>
     </FormsSty>
   );
