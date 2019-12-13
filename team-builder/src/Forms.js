@@ -11,7 +11,7 @@ const MemberForms = props =>{
          setNames({...names, [event.target.name]: event.target.value})
     }
 
-     const onSubmitForm = event=>{
+     const handleSubmit= event=>{
         
          event.preventDefault();
          const newMember ={
@@ -20,12 +20,13 @@ const MemberForms = props =>{
          }
       props.addNewMember(newMember);
      }
+     console.log(props);
     return(
         //must add label htmlFor to be a jsx property
-        <form className='Form' onSubmit={onSubmitForm}>
+        <form onSubmit={handleSubmit}>
             <label htmlFor='name'>Ye Fighters Name: </label>
             <input type='text' name='name' onChange={changeHandler} value={names.name}/><br></br>
-            <label htmlFor='email'>Ye old Email: </label>
+            <label htmlFor='email' onChange={changeHandler} value={names.email}>Ye old Email: </label>
             <input type='email' name='email' onChange={changeHandler} value={names.email}/><br></br>
             <label htmlFor='role'>Select a warrior class: </label>
         <select type='text' name='role'  onChange={changeHandler} value={names.role}>
